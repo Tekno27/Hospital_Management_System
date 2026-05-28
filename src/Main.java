@@ -1,23 +1,18 @@
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
+import utils.SceneManager;
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        Parent root = FXMLLoader.load(
-                getClass().getResource("/views/dashboard.fxml")
-        );
-
-        Scene scene = new Scene(root, 1100, 680);
+        SceneManager.setPrimaryStage(stage);
 
         stage.setTitle("MedCore HMS");
-        stage.setScene(scene);
-        stage.show();
+        stage.setResizable(true);
+
+        SceneManager.switchTo("/views/splash.fxml");
     }
 
     public static void main(String[] args) {
