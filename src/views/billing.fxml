@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.BillingController"
+      spacing="0" styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" styleClass="content-header">
+        <VBox spacing="2">
+            <Label text="Billing" styleClass="page-title"/>
+            <Label fx:id="recordCountLabel" text="0 records" styleClass="record-count"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <VBox alignment="CENTER_RIGHT" spacing="2">
+            <Label text="Total outstanding" styleClass="header-stat-label"/>
+            <Label fx:id="outstandingLabel" text="GHS 0.00" styleClass="header-stat-value"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="0" VBox.vgrow="ALWAYS">
+        <VBox prefWidth="250" minWidth="250" spacing="16" styleClass="filter-panel">
+            <Label text="Filters &amp; Actions" styleClass="filter-section-title"/>
+            <VBox spacing="8">
+                <Label text="Search patient" styleClass="filter-label"/>
+                <TextField fx:id="searchField" promptText="Patient name..."/>
+            </VBox>
+            <VBox spacing="8">
+                <Label text="Payment status" styleClass="filter-label"/>
+                <ComboBox fx:id="statusFilter" promptText="All statuses" maxWidth="Infinity"/>
+            </VBox>
+            <HBox spacing="8">
+                <Button text="Apply" onAction="#handleSearch" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-primary"/>
+                <Button text="Clear" onAction="#handleClearFilters" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-secondary"/>
+            </HBox>
+            <Separator/>
+            <Button fx:id="addBillButton" text="+ New Bill" onAction="#handleAdd" maxWidth="Infinity" styleClass="btn-accent"/>
+        </VBox>
+
+        <VBox VBox.vgrow="ALWAYS" styleClass="table-area">
+            <TableView fx:id="billingTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="45" />
+                    <TableColumn fx:id="colPatient" text="Patient" prefWidth="160" />
+                    <TableColumn fx:id="colDescription" text="Description" prefWidth="200" />
+                    <TableColumn fx:id="colAmount" text="Amount" prefWidth="100" />
+                    <TableColumn fx:id="colPaid" text="Paid" prefWidth="100" />
+                    <TableColumn fx:id="colBalance" text="Balance" prefWidth="100" />
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="90" />
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="150" />
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

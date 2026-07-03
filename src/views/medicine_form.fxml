@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.MedicineFormController"
+      spacing="12" prefWidth="400"
+      styleClass="form-root">
+
+    <Label fx:id="formTitleLabel" text="Add Medicine" styleClass="form-title" />
+    <TextField fx:id="nameField" promptText="Medicine name" />
+    <TextField fx:id="categoryField" promptText="Category" />
+    <TextField fx:id="stockField" promptText="Stock quantity" />
+    <TextField fx:id="priceField" promptText="Unit price (GHS)" />
+    <TextField fx:id="reorderField" promptText="Reorder level" />
+    <TextField fx:id="expiryField" promptText="Expiry date (YYYY-MM-DD)" />
+    <Label fx:id="formErrorLabel" styleClass="form-error" visible="false" wrapText="true" />
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-secondary" />
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary" />
+    </HBox>
+</VBox>

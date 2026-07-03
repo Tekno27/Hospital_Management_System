@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.ReportsController"
+            fitToWidth="true" styleClass="dashboard-scroll">
+    <VBox spacing="16" styleClass="dashboard-body">
+
+        <HBox spacing="12">
+            <VBox HBox.hgrow="ALWAYS" spacing="6" styleClass="kpi-card">
+                <Label text="Total Patients" styleClass="kpi-title"/>
+                <Label fx:id="totalPatientsLabel" text="0" styleClass="kpi-value"/>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS" spacing="6" styleClass="kpi-card">
+                <Label text="Currently Admitted" styleClass="kpi-title"/>
+                <Label fx:id="admittedLabel" text="0" styleClass="kpi-value"/>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS" spacing="6" styleClass="kpi-card">
+                <Label text="Outstanding Billing" styleClass="kpi-title"/>
+                <Label fx:id="outstandingLabel" text="GHS 0" styleClass="header-stat-value"/>
+            </VBox>
+            <VBox HBox.hgrow="ALWAYS" spacing="6" styleClass="kpi-card">
+                <Label text="Upcoming Appointments" styleClass="kpi-title"/>
+                <Label fx:id="upcomingApptsLabel" text="0" styleClass="kpi-value"/>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="16" alignment="TOP_LEFT">
+            <VBox spacing="0" HBox.hgrow="ALWAYS" styleClass="card">
+                <HBox styleClass="card-header">
+                    <Label text="Patient Status Distribution" styleClass="panel-title"/>
+                </HBox>
+                <VBox styleClass="card-body" alignment="CENTER">
+                    <PieChart fx:id="patientStatusChart" prefHeight="260" legendVisible="false"/>
+                </VBox>
+            </VBox>
+            <VBox spacing="0" HBox.hgrow="ALWAYS" styleClass="card">
+                <HBox styleClass="card-header">
+                    <Label text="Ward Occupancy" styleClass="panel-title"/>
+                </HBox>
+                <VBox styleClass="card-body">
+                    <BarChart fx:id="wardBarChart" prefHeight="260" legendVisible="false">
+                        <xAxis><CategoryAxis label="Ward"/></xAxis>
+                        <yAxis><NumberAxis label="Patients"/></yAxis>
+                    </BarChart>
+                </VBox>
+            </VBox>
+        </HBox>
+
+        <HBox spacing="16" alignment="TOP_LEFT">
+            <VBox spacing="0" HBox.hgrow="ALWAYS" styleClass="card">
+                <HBox styleClass="card-header">
+                    <Label text="Billing Status" styleClass="panel-title"/>
+                </HBox>
+                <VBox styleClass="card-body">
+                    <BarChart fx:id="billingBarChart" prefHeight="240" legendVisible="false">
+                        <xAxis><CategoryAxis label="Status"/></xAxis>
+                        <yAxis><NumberAxis label="Count"/></yAxis>
+                    </BarChart>
+                </VBox>
+            </VBox>
+            <VBox spacing="0" HBox.hgrow="ALWAYS" styleClass="card">
+                <HBox styleClass="card-header">
+                    <Label text="Hospital Summary" styleClass="panel-title"/>
+                </HBox>
+                <VBox styleClass="card-body">
+                    <TableView fx:id="summaryTable" prefHeight="240" styleClass="table-view">
+                        <columns>
+                            <TableColumn fx:id="colMetric" text="Metric" prefWidth="200"/>
+                            <TableColumn fx:id="colValue" text="Value" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+        </HBox>
+    </VBox>
+</ScrollPane>

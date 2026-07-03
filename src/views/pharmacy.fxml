@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.PharmacyController"
+      prefWidth="1100" prefHeight="680"
+      spacing="0" styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" styleClass="content-header">
+        <VBox spacing="2">
+            <Label text="Pharmacy" styleClass="page-title"/>
+            <Label text="Inventory and prescriptions" styleClass="page-subtitle"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="0" VBox.vgrow="ALWAYS">
+        <VBox prefWidth="250" minWidth="250" spacing="16" styleClass="filter-panel">
+            <Label text="Filters" styleClass="filter-section-title"/>
+
+            <VBox spacing="8">
+                <Label text="Search" styleClass="filter-label"/>
+                <TextField fx:id="searchField" promptText="Medicine or patient..."/>
+            </VBox>
+
+            <VBox spacing="8">
+                <Label text="Category" styleClass="filter-label"/>
+                <ComboBox fx:id="categoryFilter" promptText="All categories" maxWidth="Infinity"/>
+            </VBox>
+
+            <VBox spacing="8">
+                <Label text="Stock level" styleClass="filter-label"/>
+                <ComboBox fx:id="stockFilter" maxWidth="Infinity"/>
+            </VBox>
+
+            <VBox spacing="8">
+                <Label text="Prescription status" styleClass="filter-label"/>
+                <ComboBox fx:id="rxStatusFilter" maxWidth="Infinity"/>
+            </VBox>
+
+            <HBox spacing="8">
+                <Button text="Apply" onAction="#handleApplyFilters" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-primary"/>
+                <Button text="Clear" onAction="#handleClearFilters" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-secondary"/>
+            </HBox>
+
+            <Separator/>
+
+            <VBox spacing="8">
+                <Button fx:id="addMedicineButton" text="+ Add Medicine" onAction="#handleAddMedicine" maxWidth="Infinity" styleClass="btn-accent"/>
+                <Button fx:id="addPrescriptionButton" text="+ New Prescription" onAction="#handleAddPrescription" maxWidth="Infinity" styleClass="btn-accent"/>
+            </VBox>
+        </VBox>
+
+        <TabPane fx:id="pharmacyTabs" VBox.vgrow="ALWAYS" styleClass="tab-pane-root">
+            <tabs>
+                <Tab fx:id="inventoryTab" text="Inventory" closable="false">
+                    <VBox spacing="12" styleClass="tab-content">
+                        <TableView fx:id="medicineTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                            <columns>
+                                <TableColumn fx:id="medColId" text="ID" prefWidth="50"/>
+                                <TableColumn fx:id="medColName" text="Medicine" prefWidth="200"/>
+                                <TableColumn fx:id="medColCategory" text="Category" prefWidth="140"/>
+                                <TableColumn fx:id="medColStock" text="Stock" prefWidth="80"/>
+                                <TableColumn fx:id="medColPrice" text="Price (GHS)" prefWidth="100"/>
+                                <TableColumn fx:id="medColExpiry" text="Expiry" prefWidth="120"/>
+                                <TableColumn fx:id="medColActions" text="Actions" prefWidth="140"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+                <Tab fx:id="prescriptionsTab" text="Prescriptions" closable="false">
+                    <VBox spacing="12" styleClass="tab-content">
+                        <TableView fx:id="prescriptionTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                            <columns>
+                                <TableColumn fx:id="rxColId" text="ID" prefWidth="50"/>
+                                <TableColumn fx:id="rxColPatient" text="Patient" prefWidth="160"/>
+                                <TableColumn fx:id="rxColMedicine" text="Medicine" prefWidth="180"/>
+                                <TableColumn fx:id="rxColDosage" text="Dosage" prefWidth="100"/>
+                                <TableColumn fx:id="rxColQty" text="Qty" prefWidth="60"/>
+                                <TableColumn fx:id="rxColStatus" text="Status" prefWidth="100"/>
+                                <TableColumn fx:id="rxColActions" text="Actions" prefWidth="160"/>
+                            </columns>
+                        </TableView>
+                    </VBox>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </HBox>
+</VBox>

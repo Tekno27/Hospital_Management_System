@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.LaboratoryController"
+      prefWidth="1100" prefHeight="680"
+      styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" styleClass="content-header">
+        <VBox spacing="2">
+            <Label text="Laboratory" styleClass="page-title"/>
+            <Label text="Test catalog and orders" styleClass="page-subtitle"/>
+        </VBox>
+    </HBox>
+
+    <TabPane fx:id="labTabs" VBox.vgrow="ALWAYS" styleClass="tab-pane-root">
+        <tabs>
+            <Tab fx:id="catalogTab" text="Test Catalog" closable="false">
+                <VBox spacing="12" styleClass="tab-content">
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button fx:id="addTestButton" text="+ Add Test" onAction="#handleAddTest" styleClass="btn-accent" />
+                    </HBox>
+                    <TableView fx:id="testTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                        <columns>
+                            <TableColumn fx:id="testColId" text="ID" prefWidth="50" />
+                            <TableColumn fx:id="testColName" text="Test" prefWidth="200" />
+                            <TableColumn fx:id="testColCategory" text="Category" prefWidth="140" />
+                            <TableColumn fx:id="testColPrice" text="Price (GHS)" prefWidth="100" />
+                            <TableColumn fx:id="testColRange" text="Normal Range" prefWidth="160" />
+                            <TableColumn fx:id="testColActions" text="Actions" prefWidth="140" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+            <Tab text="Orders" closable="false">
+                <VBox spacing="12" styleClass="tab-content">
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button fx:id="addOrderButton" text="+ New Order" onAction="#handleAddOrder" styleClass="btn-accent" />
+                    </HBox>
+                    <TableView fx:id="orderTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                        <columns>
+                            <TableColumn fx:id="orderColId" text="ID" prefWidth="50" />
+                            <TableColumn fx:id="orderColPatient" text="Patient" prefWidth="150" />
+                            <TableColumn fx:id="orderColTest" text="Test" prefWidth="180" />
+                            <TableColumn fx:id="orderColDoctor" text="Doctor" prefWidth="150" />
+                            <TableColumn fx:id="orderColStatus" text="Status" prefWidth="110" />
+                            <TableColumn fx:id="orderColResult" text="Result" prefWidth="120" />
+                            <TableColumn fx:id="orderColActions" text="Actions" prefWidth="160" />
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+        </tabs>
+    </TabPane>
+</VBox>

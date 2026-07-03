@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.DoctorController"
+      spacing="0" styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" styleClass="content-header">
+        <VBox spacing="2">
+            <Label text="Doctors" styleClass="page-title"/>
+            <Label fx:id="recordCountLabel" text="0 records" styleClass="record-count"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="0" VBox.vgrow="ALWAYS">
+        <VBox prefWidth="250" minWidth="250" spacing="16" styleClass="filter-panel">
+            <Label text="Filters &amp; Actions" styleClass="filter-section-title"/>
+            <VBox spacing="8">
+                <Label text="Search" styleClass="filter-label"/>
+                <TextField fx:id="searchField" promptText="Name, department..."/>
+            </VBox>
+            <VBox spacing="8">
+                <Label text="Department" styleClass="filter-label"/>
+                <ComboBox fx:id="departmentFilter" promptText="All departments" maxWidth="Infinity"/>
+            </VBox>
+            <HBox spacing="8">
+                <Button text="Apply" onAction="#handleSearch" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-primary"/>
+                <Button text="Clear" onAction="#handleClearFilters" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-secondary"/>
+            </HBox>
+            <Separator/>
+            <Button fx:id="addDoctorButton" text="+ Add Doctor" onAction="#handleAdd" maxWidth="Infinity" styleClass="btn-accent"/>
+        </VBox>
+
+        <VBox VBox.vgrow="ALWAYS" styleClass="table-area">
+            <TableView fx:id="doctorTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="50" />
+                    <TableColumn fx:id="colName" text="Name" prefWidth="200" />
+                    <TableColumn fx:id="colSpecialization" text="Specialization" prefWidth="160" />
+                    <TableColumn fx:id="colDepartment" text="Department" prefWidth="140" />
+                    <TableColumn fx:id="colPhone" text="Phone" prefWidth="120" />
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="180" />
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="140" />
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

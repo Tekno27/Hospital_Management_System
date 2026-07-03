@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.shape.*?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.AppShellController"
+      prefWidth="1180" prefHeight="720"
+      styleClass="app-bg">
+
+    <VBox prefWidth="230" minWidth="230" spacing="0" styleClass="sidebar">
+
+        <VBox spacing="0" styleClass="sidebar-header">
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <StackPane prefWidth="34" prefHeight="34" styleClass="sidebar-logo">
+                    <Label text="+" styleClass="sidebar-logo-plus"/>
+                </StackPane>
+                <VBox spacing="1">
+                    <Label text="MedCore HMS" styleClass="sidebar-brand"/>
+                    <Label fx:id="portalLabel" text="Admin Portal" styleClass="sidebar-portal"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="scroll-pane">
+            <VBox spacing="2" styleClass="sidebar-nav-list">
+                <Label text="MAIN" styleClass="sidebar-section-label"/>
+
+                <HBox fx:id="dashboardNav" spacing="10" alignment="CENTER_LEFT"
+                      styleClass="nav-item nav-item-active">
+                    <Label text="⊞" styleClass="nav-icon"/>
+                    <Label text="Dashboard" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="patientsNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="👥" styleClass="nav-icon"/>
+                    <Label text="Patients" styleClass="nav-label"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Label fx:id="patientCountBadge" text="0" styleClass="nav-badge"/>
+                </HBox>
+
+                <HBox fx:id="nursesNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="🩹" styleClass="nav-icon"/>
+                    <Label text="Nurses" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="doctorsNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="🩺" styleClass="nav-icon"/>
+                    <Label text="Doctors" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="appointmentsNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="📅" styleClass="nav-icon"/>
+                    <Label text="Appointments" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="departmentsNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="🏥" styleClass="nav-icon"/>
+                    <Label text="Departments" styleClass="nav-label"/>
+                </HBox>
+
+                <Label text="OPERATIONS" styleClass="sidebar-section-label nav-section-spaced"/>
+
+                <HBox fx:id="wardManagementNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="🛏" styleClass="nav-icon"/>
+                    <Label text="Ward Management" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="laboratoryNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="🧪" styleClass="nav-icon"/>
+                    <Label text="Laboratory" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="pharmacyNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="💊" styleClass="nav-icon"/>
+                    <Label text="Pharmacy" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="billingNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="🧾" styleClass="nav-icon"/>
+                    <Label text="Billing" styleClass="nav-label"/>
+                </HBox>
+
+                <Label text="SYSTEM" styleClass="sidebar-section-label nav-section-spaced"/>
+
+                <HBox fx:id="reportsNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="📊" styleClass="nav-icon"/>
+                    <Label text="Reports" styleClass="nav-label"/>
+                </HBox>
+
+                <HBox fx:id="settingsNav" spacing="10" alignment="CENTER_LEFT" styleClass="nav-item">
+                    <Label text="⚙" styleClass="nav-icon"/>
+                    <Label text="Settings" styleClass="nav-label"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+
+        <HBox fx:id="userProfileSection" spacing="10" alignment="CENTER_LEFT" styleClass="profile-footer">
+            <StackPane prefWidth="38" prefHeight="38" styleClass="avatar">
+                <Label fx:id="avatarLabel" text="AK"/>
+            </StackPane>
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                <Label fx:id="userNameLabel" text="User" styleClass="profile-name"/>
+                <Label fx:id="userRoleLabel" text="Role" styleClass="profile-role"/>
+                <Label text="View profile" styleClass="profile-hint"/>
+            </VBox>
+            <Circle radius="4" fill="#7CC8F8"/>
+        </HBox>
+    </VBox>
+
+    <StackPane fx:id="contentPane" HBox.hgrow="ALWAYS" styleClass="content-pane"/>
+</HBox>

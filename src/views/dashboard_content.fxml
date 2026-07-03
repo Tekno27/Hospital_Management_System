@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.DashboardController"
+      VBox.vgrow="ALWAYS"
+      styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" spacing="14" prefHeight="56" styleClass="content-header">
+        <Label fx:id="greetingLabel" text="Good morning" styleClass="greeting-label"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="dateLabel" text="" styleClass="date-label"/>
+        <HBox alignment="CENTER_LEFT" spacing="6" styleClass="search-bar">
+            <Label text="🔍" styleClass="search-icon"/>
+            <TextField fx:id="globalSearchField" promptText="Search patients..."
+                       onAction="#handleGlobalSearch" prefWidth="180" styleClass="search-field"/>
+        </HBox>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="dashboard-scroll">
+        <VBox spacing="16" styleClass="dashboard-body">
+            <HBox fx:id="kpiRow" spacing="12">
+                <VBox HBox.hgrow="ALWAYS" spacing="8" styleClass="kpi-card">
+                    <Label text="👥" styleClass="kpi-icon"/>
+                    <Label fx:id="kpi1Value" text="0" styleClass="kpi-value"/>
+                    <Label fx:id="kpi1Title" text="Total Patients" styleClass="kpi-title"/>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" spacing="8" styleClass="kpi-card">
+                    <Label text="💊" styleClass="kpi-icon"/>
+                    <Label fx:id="kpi2Value" text="0" styleClass="kpi-value"/>
+                    <Label fx:id="kpi2Title" text="Pending Prescriptions" styleClass="kpi-title"/>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" spacing="8" styleClass="kpi-card">
+                    <Label text="🧪" styleClass="kpi-icon"/>
+                    <Label fx:id="kpi3Value" text="0" styleClass="kpi-value"/>
+                    <Label fx:id="kpi3Title" text="Pending Lab Orders" styleClass="kpi-title"/>
+                </VBox>
+                <VBox HBox.hgrow="ALWAYS" spacing="8" styleClass="kpi-card">
+                    <Label text="📊" styleClass="kpi-icon"/>
+                    <Label fx:id="kpi4Value" text="0" styleClass="kpi-value"/>
+                    <Label fx:id="kpi4Title" text="Outstanding Billing" styleClass="kpi-title"/>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="16" alignment="TOP_LEFT">
+                <VBox spacing="0" HBox.hgrow="ALWAYS" styleClass="card">
+                    <HBox styleClass="card-header">
+                        <Label text="Patient Status" styleClass="panel-title"/>
+                    </HBox>
+                    <VBox styleClass="card-body" alignment="CENTER">
+                        <PieChart fx:id="patientStatusChart" prefHeight="220" legendVisible="true"/>
+                    </VBox>
+                </VBox>
+                <VBox spacing="0" HBox.hgrow="ALWAYS" styleClass="card">
+                    <HBox styleClass="card-header">
+                        <Label text="Ward Occupancy" styleClass="panel-title"/>
+                    </HBox>
+                    <VBox styleClass="card-body">
+                        <BarChart fx:id="wardBarChart" prefHeight="220" legendVisible="false">
+                            <xAxis><CategoryAxis label="Ward"/></xAxis>
+                            <yAxis><NumberAxis label="Patients"/></yAxis>
+                        </BarChart>
+                    </VBox>
+                </VBox>
+            </HBox>
+
+            <HBox spacing="16" alignment="TOP_LEFT">
+                <VBox HBox.hgrow="ALWAYS" spacing="0" styleClass="card">
+                    <HBox alignment="CENTER_LEFT" styleClass="card-header">
+                        <Label fx:id="activityPanelTitle" text="Recent Activity" styleClass="panel-title"/>
+                    </HBox>
+                    <VBox fx:id="activityList" styleClass="card-body" spacing="0"/>
+                </VBox>
+
+                <VBox HBox.hgrow="ALWAYS" spacing="16">
+                    <VBox spacing="0" styleClass="card">
+                        <HBox alignment="CENTER_LEFT" styleClass="card-header">
+                            <Label text="Bed Utilization" styleClass="panel-title"/>
+                        </HBox>
+                        <VBox fx:id="wardOccupancyList" styleClass="card-body" spacing="10"/>
+                    </VBox>
+
+                    <VBox spacing="0" styleClass="card">
+                        <HBox alignment="CENTER_LEFT" styleClass="card-header">
+                            <Label text="Quick Stats" styleClass="panel-title"/>
+                        </HBox>
+                        <GridPane hgap="10" vgap="10" styleClass="card-body-grid">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+                                <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+                            </columnConstraints>
+                            <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                <Label fx:id="stat1Value" text="0" styleClass="stat-tile-value"/>
+                                <Label fx:id="stat1Title" text="Patients" styleClass="stat-tile-label"/>
+                            </VBox>
+                            <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                                <Label fx:id="stat2Value" text="0" styleClass="stat-tile-value"/>
+                                <Label fx:id="stat2Title" text="Pending prescriptions" styleClass="stat-tile-label"/>
+                            </VBox>
+                            <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                <Label fx:id="stat3Value" text="0" styleClass="stat-tile-value"/>
+                                <Label fx:id="stat3Title" text="Pending lab orders" styleClass="stat-tile-label"/>
+                            </VBox>
+                            <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                <Label fx:id="stat4Value" text="0%" styleClass="stat-tile-value"/>
+                                <Label fx:id="stat4Title" text="Lab completion rate" styleClass="stat-tile-label"/>
+                            </VBox>
+                        </GridPane>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

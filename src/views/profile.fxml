@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.ProfileController"
+      spacing="0" styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" spacing="14" prefHeight="56" styleClass="content-header">
+        <Label text="My Profile" styleClass="page-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Back to Dashboard" onAction="#handleBackToDashboard" styleClass="btn-secondary"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="dashboard-scroll">
+        <VBox spacing="20" styleClass="profile-page-body" alignment="TOP_CENTER">
+
+            <HBox spacing="20" alignment="TOP_CENTER" maxWidth="900">
+                <VBox alignment="CENTER" spacing="12" prefWidth="320" styleClass="profile-card">
+                    <StackPane prefWidth="80" prefHeight="80" styleClass="profile-avatar-lg">
+                        <Label fx:id="avatarLabel" text="AK"/>
+                    </StackPane>
+                    <Label fx:id="fullNameLabel" text="User Name" styleClass="profile-fullname"/>
+                    <Label fx:id="roleLabel" text="Role" styleClass="role-label-muted"/>
+                    <Label fx:id="portalLabel" text="Portal" styleClass="portal-label-muted"/>
+                    <Label fx:id="loginSinceLabel" text="" styleClass="login-hint"/>
+
+                    <Separator prefWidth="280"/>
+
+                    <GridPane hgap="12" vgap="10" styleClass="profile-grid">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="90"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+                        <Label text="Username" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="profile-detail-label"/>
+                        <Label fx:id="usernameLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0" styleClass="profile-detail-value"/>
+                        <Label text="Email" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="profile-detail-label"/>
+                        <Label fx:id="emailLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="profile-detail-value"/>
+                        <Label text="Phone" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="profile-detail-label"/>
+                        <Label fx:id="phoneLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="profile-detail-value"/>
+                        <Label text="Details" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="profile-detail-label"/>
+                        <Label fx:id="staffInfoLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="3" wrapText="true"/>
+                    </GridPane>
+
+                    <HBox spacing="12" alignment="CENTER" styleClass="profile-actions">
+                        <Button text="Log Out" onAction="#handleLogout" styleClass="btn-danger"/>
+                    </HBox>
+                </VBox>
+
+                <VBox spacing="16" prefWidth="420">
+                    <Label text="Your overview" styleClass="filter-section-title"/>
+                    <GridPane hgap="10" vgap="10">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+                            <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
+                        </columnConstraints>
+                        <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                            <Label fx:id="statPatients" text="0" styleClass="stat-tile-value"/>
+                            <Label fx:id="statPatientsLabel" text="Patients" styleClass="stat-tile-label"/>
+                        </VBox>
+                        <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                            <Label fx:id="statPendingRx" text="0" styleClass="stat-tile-value"/>
+                            <Label text="Pending Rx" styleClass="stat-tile-label"/>
+                        </VBox>
+                        <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                            <Label fx:id="statPendingLabs" text="0" styleClass="stat-tile-value"/>
+                            <Label text="Pending labs" styleClass="stat-tile-label"/>
+                        </VBox>
+                        <VBox spacing="2" styleClass="stat-tile" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <Label fx:id="statUpcomingAppts" text="0" styleClass="stat-tile-value"/>
+                            <Label text="Upcoming appts" styleClass="stat-tile-label"/>
+                        </VBox>
+                    </GridPane>
+
+                    <Label text="Quick navigation" styleClass="filter-section-title"/>
+                    <FlowPane hgap="8" vgap="8">
+                        <Button text="Dashboard" onAction="#handleGoDashboard" styleClass="btn-secondary"/>
+                        <Button text="Patients" onAction="#handleGoPatients" styleClass="btn-secondary"/>
+                        <Button fx:id="pharmacyQuickBtn" text="Pharmacy" onAction="#handleGoPharmacy" styleClass="btn-secondary"/>
+                        <Button fx:id="labQuickBtn" text="Laboratory" onAction="#handleGoLab" styleClass="btn-secondary"/>
+                        <Button fx:id="appointmentsQuickBtn" text="Appointments" onAction="#handleGoAppointments" styleClass="btn-secondary"/>
+                    </FlowPane>
+
+                    <VBox spacing="8" styleClass="profile-card">
+                        <Label text="Access &amp; permissions" styleClass="filter-section-title"/>
+                        <Label fx:id="permissionsLabel" wrapText="true" styleClass="muted-text"/>
+                    </VBox>
+                </VBox>
+            </HBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

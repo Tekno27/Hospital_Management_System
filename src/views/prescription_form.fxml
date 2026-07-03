@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.PrescriptionFormController"
+      spacing="12" prefWidth="420"
+      styleClass="form-root">
+
+    <Label fx:id="formTitleLabel" text="New Prescription" styleClass="form-title" />
+    <ComboBox fx:id="patientCombo" promptText="Select patient" maxWidth="Infinity" />
+    <ComboBox fx:id="medicineCombo" promptText="Select medicine" maxWidth="Infinity" />
+    <TextField fx:id="dosageField" promptText="Dosage (e.g. 500mg)" />
+    <TextField fx:id="frequencyField" promptText="Frequency (e.g. Twice daily)" />
+    <TextField fx:id="durationField" promptText="Duration (e.g. 7 days)" />
+    <TextField fx:id="quantityField" promptText="Quantity" />
+    <TextArea fx:id="notesArea" promptText="Notes" prefRowCount="2" />
+    <Label fx:id="formErrorLabel" styleClass="form-error" visible="false" wrapText="true" />
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-secondary" />
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary" />
+    </HBox>
+</VBox>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.PatientFormController"
+      spacing="12" prefWidth="420"
+      styleClass="form-root">
+
+    <Label fx:id="formTitleLabel" text="Add Patient" styleClass="form-title" />
+
+    <TextField fx:id="fullNameField" promptText="Full name" />
+    <DatePicker fx:id="dobPicker" promptText="Date of birth" maxWidth="Infinity" />
+    <ComboBox fx:id="genderCombo" promptText="Gender" maxWidth="Infinity" />
+    <TextField fx:id="phoneField" promptText="Phone number" />
+    <TextField fx:id="addressField" promptText="Address" />
+    <TextField fx:id="bloodGroupField" promptText="Blood group (e.g. O+)" />
+    <ComboBox fx:id="doctorCombo" promptText="Assign doctor" maxWidth="Infinity" />
+    <TextField fx:id="wardField" promptText="Ward" />
+    <ComboBox fx:id="statusCombo" promptText="Status" maxWidth="Infinity" />
+    <TextArea fx:id="notesArea" promptText="Notes" prefRowCount="3" />
+
+    <Label fx:id="formErrorLabel" styleClass="form-error" visible="false" wrapText="true" />
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-secondary" />
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary" />
+    </HBox>
+
+</VBox>

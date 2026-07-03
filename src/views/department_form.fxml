@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.DepartmentFormController"
+      spacing="12" prefWidth="400" styleClass="form-root">
+
+    <Label fx:id="formTitleLabel" text="Add Department" styleClass="form-title"/>
+    <TextField fx:id="nameField" promptText="Department name"/>
+    <TextField fx:id="floorField" promptText="Floor"/>
+    <ComboBox fx:id="headDoctorCombo" promptText="Head doctor" maxWidth="Infinity"/>
+    <TextField fx:id="bedCapacityField" promptText="Bed capacity"/>
+    <TextField fx:id="phoneField" promptText="Contact phone"/>
+    <TextArea fx:id="descriptionArea" promptText="Description" prefRowCount="3"/>
+    <Label fx:id="formErrorLabel" styleClass="form-error" visible="false" managed="false" wrapText="true"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-secondary"/>
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary"/>
+    </HBox>
+</VBox>

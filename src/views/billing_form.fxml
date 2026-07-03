@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.BillingFormController"
+      spacing="12" prefWidth="380"
+      styleClass="form-root">
+
+    <Label fx:id="formTitleLabel" text="New Bill" styleClass="form-title" />
+
+    <ComboBox fx:id="patientCombo" promptText="Select patient" maxWidth="Infinity" />
+    <TextField fx:id="descriptionField" promptText="Description (e.g. Consultation fee)" />
+    <TextField fx:id="amountField" promptText="Total amount (GHS)" />
+    <TextField fx:id="amountPaidField" promptText="Amount paid so far (GHS)" />
+    <ComboBox fx:id="statusCombo" promptText="Status" maxWidth="Infinity" />
+    <DatePicker fx:id="dueDatePicker" promptText="Due date" maxWidth="Infinity" />
+
+    <Label fx:id="formErrorLabel" styleClass="form-error" visible="false" wrapText="true" />
+
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-secondary" />
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary" />
+    </HBox>
+
+</VBox>

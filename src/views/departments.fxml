@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.DepartmentsController"
+      spacing="0" styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" styleClass="content-header">
+        <VBox spacing="2">
+            <Label text="Departments" styleClass="page-title"/>
+            <Label fx:id="recordCountLabel" text="0 departments" styleClass="record-count"/>
+        </VBox>
+    </HBox>
+
+    <HBox spacing="0" VBox.vgrow="ALWAYS">
+        <VBox prefWidth="250" minWidth="250" spacing="16" styleClass="filter-panel">
+            <Label text="Filters &amp; Actions" styleClass="filter-section-title"/>
+            <VBox spacing="8">
+                <Label text="Search" styleClass="filter-label"/>
+                <TextField fx:id="searchField" promptText="Name, floor..."/>
+            </VBox>
+            <HBox spacing="8">
+                <Button text="Apply" onAction="#handleSearch" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-primary"/>
+                <Button text="Clear" onAction="#handleClearFilters" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-secondary"/>
+            </HBox>
+            <Separator/>
+            <Button text="+ Add Department" onAction="#handleAdd" maxWidth="Infinity" styleClass="btn-accent"/>
+        </VBox>
+
+        <VBox VBox.vgrow="ALWAYS" styleClass="table-area">
+            <TableView fx:id="departmentTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colId" text="ID" prefWidth="45"/>
+                    <TableColumn fx:id="colName" text="Department" prefWidth="140"/>
+                    <TableColumn fx:id="colFloor" text="Floor" prefWidth="80"/>
+                    <TableColumn fx:id="colHead" text="Head Doctor" prefWidth="150"/>
+                    <TableColumn fx:id="colBeds" text="Beds" prefWidth="60"/>
+                    <TableColumn fx:id="colDoctors" text="Doctors" prefWidth="70"/>
+                    <TableColumn fx:id="colPatients" text="Patients" prefWidth="70"/>
+                    <TableColumn fx:id="colPhone" text="Phone" prefWidth="110"/>
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="140"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

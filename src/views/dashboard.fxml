@@ -2,8 +2,6 @@
 
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.shape.*?>
 
 <HBox xmlns="http://javafx.com/javafx"
@@ -16,9 +14,7 @@
           style="-fx-background-color: #EAF6FF; -fx-border-color: #D6ECFA; -fx-border-width: 0 1 0 0;">
 
         <VBox spacing="0"
-              style="-fx-padding: 20 18 16 18;
-                     -fx-border-color: #D6ECFA;
-                     -fx-border-width: 0 0 1 0;">
+              style="-fx-padding: 20 18 16 18; -fx-border-color: #D6ECFA; -fx-border-width: 0 0 1 0;">
             <HBox spacing="10" alignment="CENTER_LEFT">
                 <StackPane prefWidth="34" prefHeight="34"
                            style="-fx-background-color: #7CC8F8; -fx-background-radius: 8;">
@@ -26,501 +22,180 @@
                 </StackPane>
                 <VBox spacing="1">
                     <Label text="MedCore HMS"
-                           style="-fx-font-size: 14;
-                                -fx-font-weight: bold;
-                                -fx-text-fill: #3D7FB8;"/>
-                    <Label text="Admin Portal"
+                           style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #3D7FB8;"/>
+                    <Label fx:id="portalLabel" text="Admin Portal"
                            style="-fx-font-size: 11; -fx-text-fill: #78BCE8;"/>
                 </VBox>
             </HBox>
         </VBox>
 
         <VBox spacing="2" style="-fx-padding: 14 10 0 10;">
-            <Label text="MAIN"
-                   style="-fx-font-size: 10; -fx-text-fill: #78BCE8; -fx-padding: 0 8 6 8;"/>
+            <Label text="MAIN" style="-fx-font-size: 10; -fx-text-fill: #78BCE8; -fx-padding: 0 8 6 8;"/>
 
-            <HBox fx:id="dashboardNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
-                  style="-fx-background-color: #7CC8F8;
-                        -fx-background-radius: 8;
-                        -fx-padding: 9 10 9 10;
-                        -fx-cursor: hand;">
-                <Label text="⊞"
-                       style="-fx-font-size: 15; -fx-text-fill: white;"/>
-                <Label text="Dashboard"
-                       style="-fx-font-size: 13;
-                            -fx-text-fill: white;
-                            -fx-font-weight: bold;"/>
+            <HBox fx:id="dashboardNav" spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-background-color: #7CC8F8; -fx-background-radius: 8; -fx-padding: 9 10 9 10; -fx-cursor: hand;">
+                <Label text="⊞" style="-fx-font-size: 15; -fx-text-fill: white;"/>
+                <Label text="Dashboard" style="-fx-font-size: 13; -fx-text-fill: white; -fx-font-weight: bold;"/>
             </HBox>
-            <HBox fx:id="patientsNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
+
+            <HBox fx:id="patientsNav" spacing="10" alignment="CENTER_LEFT"
                   style="-fx-padding: 9 10 9 10; -fx-cursor: hand; -fx-background-radius: 8;">
                 <Label text="👥" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
                 <Label text="Patients" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
                 <Region HBox.hgrow="ALWAYS"/>
-                <Label text="284"
-                       style="-fx-background-color: #A7DAF9;
-                       -fx-text-fill: #3D7FB8;
-                       -fx-font-size: 10;
-                       -fx-font-weight: bold;
-                       -fx-padding: 1 6 1 6;
-                       -fx-background-radius: 10;"/>
+                <Label fx:id="patientCountBadge" text="0"
+                       style="-fx-background-color: #A7DAF9; -fx-text-fill: #3D7FB8; -fx-font-size: 10; -fx-font-weight: bold; -fx-padding: 1 6 1 6; -fx-background-radius: 10;"/>
             </HBox>
 
-            <HBox fx:id="appointmentsNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
+            <HBox fx:id="appointmentsNav" spacing="10" alignment="CENTER_LEFT"
                   style="-fx-padding: 9 10 9 10; -fx-cursor: hand; -fx-background-radius: 8;">
-                <Label text="📅"
-                       style="-fx-font-size: 14;
-                             -fx-text-fill: #3D7FB8;"/>
-                <Label text="Appointments"
-                       style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
-                <Region HBox.hgrow="ALWAYS"/>
-                <Label text="12"
-                       style="-fx-background-color: #A7DAF9;
-                            -fx-text-fill: #3D7FB8;
-                            -fx-font-size: 10;
-                            -fx-font-weight: bold;
-                            -fx-padding: 1 6 1 6;
-                            -fx-background-radius: 10;"/>
+                <Label text="📅" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
+                <Label text="Appointments" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
 
-            <HBox fx:id="doctorsNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
+            <HBox fx:id="doctorsNav" spacing="10" alignment="CENTER_LEFT"
                   style="-fx-padding: 9 10 9 10; -fx-cursor: hand; -fx-background-radius: 8;">
                 <Label text="🩺" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
                 <Label text="Doctors" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
 
-            <HBox fx:id="departmentsNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
+            <HBox fx:id="departmentsNav" spacing="10" alignment="CENTER_LEFT"
                   style="-fx-padding: 9 10 9 10; -fx-cursor: hand; -fx-background-radius: 8;">
                 <Label text="🏥" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
                 <Label text="Departments" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
         </VBox>
 
-        <VBox spacing="2"
-              style="-fx-padding: 14 10 0 10;">
+        <VBox spacing="2" style="-fx-padding: 14 10 0 10;">
+            <Label text="OPERATIONS" style="-fx-font-size: 10; -fx-text-fill: #78BCE8; -fx-padding: 0 8 6 8;"/>
 
-            <Label text="OPERATIONS"
-                   style="-fx-font-size: 10;
-                          -fx-text-fill: #78BCE8;
-                          -fx-padding: 0 8 6 8;"/>
-
-            <HBox fx:id="wardManagementNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
-                  style="-fx-padding: 9 10 9 10;
-                         -fx-background-radius: 8;
-                         -fx-cursor: hand;">
-
-                <Label text="🛏"
-                       style="-fx-font-size: 14;
-                              -fx-text-fill: #3D7FB8;"/>
-
-                <Label text="Ward Management"
-                       style="-fx-font-size: 13;
-                              -fx-text-fill: #3D7FB8;"/>
+            <HBox fx:id="wardManagementNav" spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-padding: 9 10 9 10; -fx-background-radius: 8; -fx-cursor: hand;">
+                <Label text="🛏" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
+                <Label text="Ward Management" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
 
-            <HBox fx:id="laboratoryNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
-                  style="-fx-padding: 9 10 9 10;
-                         -fx-background-radius: 8;
-                         -fx-cursor: hand;">
-
-                <Label text="🧪"
-                       style="-fx-font-size: 14;
-                              -fx-text-fill: #3D7FB8;"/>
-
-                <Label text="Laboratory"
-                       style="-fx-font-size: 13;
-                              -fx-text-fill: #3D7FB8;"/>
+            <HBox fx:id="laboratoryNav" spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-padding: 9 10 9 10; -fx-background-radius: 8; -fx-cursor: hand;">
+                <Label text="🧪" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
+                <Label text="Laboratory" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
 
-            <HBox fx:id="pharmacyNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
-                  style="-fx-padding: 9 10 9 10;
-                         -fx-background-radius: 8;
-                         -fx-cursor: hand;">
-
-                <Label text="💊"
-                       style="-fx-font-size: 14;
-                              -fx-text-fill: #3D7FB8;"/>
-
-                <Label text="Pharmacy"
-                       style="-fx-font-size: 13;
-                              -fx-text-fill: #3D7FB8;"/>
+            <HBox fx:id="pharmacyNav" spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-padding: 9 10 9 10; -fx-background-radius: 8; -fx-cursor: hand;">
+                <Label text="💊" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
+                <Label text="Pharmacy" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
 
-            <HBox fx:id="billingNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
-                  style="-fx-padding: 9 10 9 10;
-                         -fx-background-radius: 8;
-                         -fx-cursor: hand;">
-
-                <Label text="🧾"
-                       style="-fx-font-size: 14;
-                              -fx-text-fill: #3D7FB8;"/>
-
-                <Label text="Billing"
-                       style="-fx-font-size: 13;
-                              -fx-text-fill: #3D7FB8;"/>
+            <HBox fx:id="billingNav" spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-padding: 9 10 9 10; -fx-background-radius: 8; -fx-cursor: hand;">
+                <Label text="🧾" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
+                <Label text="Billing" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
-
         </VBox>
 
-        <VBox spacing="2"
-              style="-fx-padding: 14 10 0 10;">
+        <VBox spacing="2" style="-fx-padding: 14 10 0 10;">
+            <Label text="SYSTEM" style="-fx-font-size: 10; -fx-text-fill: #78BCE8; -fx-padding: 0 8 6 8;"/>
 
-            <Label text="SYSTEM"
-                   style="-fx-font-size: 10;
-                          -fx-text-fill: #78BCE8;
-                          -fx-padding: 0 8 6 8;"/>
-
-            <HBox fx:id="reportsNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
-                  style="-fx-padding: 9 10 9 10;
-                         -fx-background-radius: 8;
-                         -fx-cursor: hand;">
-
-                <Label text="📊"
-                       style="-fx-font-size: 14;
-                              -fx-text-fill: #3D7FB8;"/>
-
-                <Label text="Reports"
-                       style="-fx-font-size: 13;
-                              -fx-text-fill: #3D7FB8;"/>
+            <HBox fx:id="reportsNav" spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-padding: 9 10 9 10; -fx-background-radius: 8; -fx-cursor: hand;">
+                <Label text="📊" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
+                <Label text="Reports" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
 
-            <HBox fx:id="settingsNav"
-                  spacing="10"
-                  alignment="CENTER_LEFT"
-                  style="-fx-padding: 9 10 9 10;
-                         -fx-background-radius: 8;
-                         -fx-cursor: hand;">
-
-                <Label text="⚙"
-                       style="-fx-font-size: 14;
-                              -fx-text-fill: #3D7FB8;"/>
-
-                <Label text="Settings"
-                       style="-fx-font-size: 13;
-                              -fx-text-fill: #3D7FB8;"/>
+            <HBox fx:id="settingsNav" spacing="10" alignment="CENTER_LEFT"
+                  style="-fx-padding: 9 10 9 10; -fx-background-radius: 8; -fx-cursor: hand;">
+                <Label text="⚙" style="-fx-font-size: 14; -fx-text-fill: #3D7FB8;"/>
+                <Label text="Settings" style="-fx-font-size: 13; -fx-text-fill: #3D7FB8;"/>
             </HBox>
-
         </VBox>
 
         <Region VBox.vgrow="ALWAYS"/>
 
-        <HBox fx:id="userProfileSection"
-              spacing="10"
-              alignment="CENTER_LEFT"
-              style="-fx-padding: 14 18 14 18;
-                     -fx-background-color: #F8FDFF;
-                     -fx-border-color: #D6ECFA;
-                     -fx-border-width: 1 0 0 0;
-                     -fx-cursor: hand;">
-
-            <StackPane fx:id="userAvatar"
-                       prefWidth="38"
-                       prefHeight="38"
-                       style="-fx-background-color: #7CC8F8;
-                              -fx-background-radius: 19;">
-
-                <Label text="AK"
-                       style="-fx-font-size: 12;
-                              -fx-font-weight: bold;
-                              -fx-text-fill: white;"/>
+        <HBox fx:id="userProfileSection" spacing="10" alignment="CENTER_LEFT"
+              style="-fx-padding: 14 18 14 18; -fx-background-color: #F8FDFF; -fx-border-color: #D6ECFA; -fx-border-width: 1 0 0 0; -fx-cursor: hand;">
+            <StackPane prefWidth="38" prefHeight="38"
+                       style="-fx-background-color: #7CC8F8; -fx-background-radius: 19;">
+                <Label fx:id="avatarLabel" text="AK"
+                       style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: white;"/>
             </StackPane>
-
-            <VBox spacing="2"
-                  HBox.hgrow="ALWAYS">
-
-                <Label fx:id="userNameLabel"
-                       text="Dr. Ama Korkor"
-                       style="-fx-font-size: 12;
-                              -fx-font-weight: bold;
-                              -fx-text-fill: #3D7FB8;"/>
-
-                <Label fx:id="userRoleLabel"
-                       text="Chief Administrator"
-                       style="-fx-font-size: 11;
-                              -fx-text-fill: #78BCE8;"/>
+            <VBox spacing="2" HBox.hgrow="ALWAYS">
+                <Label fx:id="userNameLabel" text="User"
+                       style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #3D7FB8;"/>
+                <Label fx:id="userRoleLabel" text="Role"
+                       style="-fx-font-size: 11; -fx-text-fill: #78BCE8;"/>
+                <Label text="Click to log out" style="-fx-font-size: 9; -fx-text-fill: #AAAAAA;"/>
             </VBox>
-
-            <Circle radius="4"
-                    fill="#7CC8F8"/>
+            <Circle radius="4" fill="#7CC8F8"/>
         </HBox>
     </VBox>
 
     <VBox HBox.hgrow="ALWAYS" spacing="0">
-
         <HBox alignment="CENTER_LEFT" spacing="14" prefHeight="56"
               style="-fx-background-color: white; -fx-padding: 0 24 0 24; -fx-border-color: #e0e8f0; -fx-border-width: 0 0 1 0;">
-            <Label fx:id="greetingLabel" text="Good morning, Dr. Ama 👋"
+            <Label fx:id="greetingLabel" text="Good morning"
                    style="-fx-font-size: 15; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
             <Region HBox.hgrow="ALWAYS"/>
-            <Label fx:id="dateLabel" text="Thursday, 28 May 2026"
+            <Label fx:id="dateLabel" text=""
                    style="-fx-font-size: 12; -fx-text-fill: #888;"/>
             <HBox alignment="CENTER_LEFT" spacing="6"
                   style="-fx-background-color: #E6F1FB; -fx-background-radius: 20; -fx-padding: 5 12 5 12; -fx-border-color: #B5D4F4; -fx-border-radius: 20; -fx-border-width: 1;">
                 <Label text="🔍" style="-fx-font-size: 13;"/>
-                <TextField promptText="Search patients, records..."
-                           prefWidth="150"
+                <TextField fx:id="globalSearchField" promptText="Search patients..."
+                           onAction="#handleGlobalSearch" prefWidth="180"
                            style="-fx-background-color: transparent; -fx-border-width: 0; -fx-font-size: 13;"/>
             </HBox>
-            <StackPane prefWidth="32" prefHeight="32"
-                       style="-fx-background-color: #E6F1FB; -fx-background-radius: 16; -fx-cursor: hand;">
-                <Label text="🔔" style="-fx-font-size: 15;"/>
-            </StackPane>
-            <StackPane prefWidth="32" prefHeight="32"
-                       style="-fx-background-color: #E6F1FB; -fx-background-radius: 16; -fx-cursor: hand;">
-                <Label text="✉" style="-fx-font-size: 15;"/>
-            </StackPane>
         </HBox>
 
         <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS"
                     style="-fx-background-color: #f0f6ff; -fx-background: #f0f6ff;">
             <VBox spacing="16" style="-fx-padding: 20 24 24 24; -fx-background-color: #f0f6ff;">
 
-                <HBox spacing="12">
-
-                    <VBox HBox.hgrow="ALWAYS" spacing="10"
-                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
-                        <HBox alignment="CENTER_LEFT">
-                            <StackPane prefWidth="36" prefHeight="36"
-                                       style="-fx-background-color: #E6F1FB; -fx-background-radius: 8;">
-                                <Label text="👥" style="-fx-font-size: 17;"/>
-                            </StackPane>
-                            <Region HBox.hgrow="ALWAYS"/>
-                            <Label text="↑ 4%"
-                                   style="-fx-background-color: #eaf3de; -fx-text-fill: #3b6d11; -fx-font-size: 11; -fx-padding: 2 7 2 7; -fx-background-radius: 10; -fx-font-weight: bold;"/>
-                        </HBox>
-                        <Label fx:id="totalPatientsValue" text="0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
-                        <Label text="Total Patients" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
+                <HBox fx:id="kpiRow" spacing="12">
+                    <VBox HBox.hgrow="ALWAYS" spacing="8"
+                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
+                        <Label text="👥" style="-fx-font-size: 17;"/>
+                        <Label fx:id="kpi1Value" text="0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
+                        <Label fx:id="kpi1Title" text="Total Patients" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
                     </VBox>
-
-                    <VBox HBox.hgrow="ALWAYS" spacing="10"
-                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
-                        <HBox alignment="CENTER_LEFT">
-                            <StackPane prefWidth="36" prefHeight="36"
-                                       style="-fx-background-color: #eaf3de; -fx-background-radius: 8;">
-                                <Label text="✅" style="-fx-font-size: 17;"/>
-                            </StackPane>
-                            <Region HBox.hgrow="ALWAYS"/>
-                            <Label text="↑ 9%"
-                                   style="-fx-background-color: #eaf3de; -fx-text-fill: #3b6d11; -fx-font-size: 11; -fx-padding: 2 7 2 7; -fx-background-radius: 10; -fx-font-weight: bold;"/>
-                        </HBox>
-                        <Label text="47" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
-                        <Label text="Today's Appointments" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
+                    <VBox HBox.hgrow="ALWAYS" spacing="8"
+                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
+                        <Label text="💊" style="-fx-font-size: 17;"/>
+                        <Label fx:id="kpi2Value" text="0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
+                        <Label fx:id="kpi2Title" text="Pending Prescriptions" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
                     </VBox>
-
-                    <VBox HBox.hgrow="ALWAYS" spacing="10"
-                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
-                        <HBox alignment="CENTER_LEFT">
-                            <StackPane prefWidth="36" prefHeight="36"
-                                       style="-fx-background-color: #faeeda; -fx-background-radius: 8;">
-                                <Label text="🛏" style="-fx-font-size: 17;"/>
-                            </StackPane>
-                            <Region HBox.hgrow="ALWAYS"/>
-                            <Label text="↓ 2%"
-                                   style="-fx-background-color: #fcebeb; -fx-text-fill: #a32d2d; -fx-font-size: 11; -fx-padding: 2 7 2 7; -fx-background-radius: 10; -fx-font-weight: bold;"/>
-                        </HBox>
-                        <Label text="136" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
-                        <Label text="Beds Occupied" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
+                    <VBox HBox.hgrow="ALWAYS" spacing="8"
+                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
+                        <Label text="🧪" style="-fx-font-size: 17;"/>
+                        <Label fx:id="kpi3Value" text="0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
+                        <Label fx:id="kpi3Title" text="Pending Lab Orders" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
                     </VBox>
-
-                    <VBox HBox.hgrow="ALWAYS" spacing="10"
-                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
-                        <HBox alignment="CENTER_LEFT">
-                            <StackPane prefWidth="36" prefHeight="36"
-                                       style="-fx-background-color: #fcebeb; -fx-background-radius: 8;">
-                                <Label text="🚨" style="-fx-font-size: 17;"/>
-                            </StackPane>
-                            <Region HBox.hgrow="ALWAYS"/>
-                            <Label text="↓ 1"
-                                   style="-fx-background-color: #fcebeb; -fx-text-fill: #a32d2d; -fx-font-size: 11; -fx-padding: 2 7 2 7; -fx-background-radius: 10; -fx-font-weight: bold;"/>
-                        </HBox>
-                        <Label text="8" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
-                        <Label text="Critical Cases" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
+                    <VBox HBox.hgrow="ALWAYS" spacing="8"
+                          style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 14 16; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
+                        <Label text="📊" style="-fx-font-size: 17;"/>
+                        <Label fx:id="kpi4Value" text="0" style="-fx-font-size: 26; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
+                        <Label fx:id="kpi4Title" text="Outstanding Billing" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
                     </VBox>
                 </HBox>
 
                 <HBox spacing="16" alignment="TOP_LEFT">
-
                     <VBox HBox.hgrow="ALWAYS" spacing="0"
                           style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
                         <HBox alignment="CENTER_LEFT" style="-fx-padding: 14 16 10 16;">
-                            <Label text="Today's Appointments"
+                            <Label fx:id="activityPanelTitle" text="Recent Activity"
                                    style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
-                            <Region HBox.hgrow="ALWAYS"/>
-                            <Label text="View all →"
-                                   style="-fx-font-size: 12; -fx-text-fill: #378ADD; -fx-cursor: hand;"/>
                         </HBox>
-
-                        <VBox style="-fx-padding: 0 16 14 16;" spacing="0">
-
-                            <HBox spacing="10" alignment="CENTER_LEFT"
-                                  style="-fx-padding: 8 0 8 0; -fx-border-color: #f0f4fa; -fx-border-width: 0 0 1 0;">
-                                <StackPane prefWidth="30" prefHeight="30"
-                                           style="-fx-background-color: #B5D4F4; -fx-background-radius: 15;">
-                                    <Label text="KA" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                </StackPane>
-                                <VBox spacing="1" HBox.hgrow="ALWAYS">
-                                    <Label text="Kofi Asante" style="-fx-font-size: 13; -fx-font-weight: bold;"/>
-                                    <Label text="Cardiology · Follow-up" style="-fx-font-size: 11; -fx-text-fill: #888;"/>
-                                </VBox>
-                                <VBox alignment="CENTER_RIGHT" spacing="3">
-                                    <Label text="08:30" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #185FA5;"/>
-                                    <Label text="Confirmed"
-                                           style="-fx-background-color: #eaf3de; -fx-text-fill: #3b6d11; -fx-font-size: 11; -fx-padding: 2 8 2 8; -fx-background-radius: 10;"/>
-                                </VBox>
-                            </HBox>
-
-                            <HBox spacing="10" alignment="CENTER_LEFT"
-                                  style="-fx-padding: 8 0 8 0; -fx-border-color: #f0f4fa; -fx-border-width: 0 0 1 0;">
-                                <StackPane prefWidth="30" prefHeight="30"
-                                           style="-fx-background-color: #B5D4F4; -fx-background-radius: 15;">
-                                    <Label text="AM" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                </StackPane>
-                                <VBox spacing="1" HBox.hgrow="ALWAYS">
-                                    <Label text="Abena Mensah" style="-fx-font-size: 13; -fx-font-weight: bold;"/>
-                                    <Label text="Pediatrics · Routine" style="-fx-font-size: 11; -fx-text-fill: #888;"/>
-                                </VBox>
-                                <VBox alignment="CENTER_RIGHT" spacing="3">
-                                    <Label text="09:15" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #185FA5;"/>
-                                    <Label text="Confirmed"
-                                           style="-fx-background-color: #eaf3de; -fx-text-fill: #3b6d11; -fx-font-size: 11; -fx-padding: 2 8 2 8; -fx-background-radius: 10;"/>
-                                </VBox>
-                            </HBox>
-
-                            <HBox spacing="10" alignment="CENTER_LEFT"
-                                  style="-fx-padding: 8 0 8 0; -fx-border-color: #f0f4fa; -fx-border-width: 0 0 1 0;">
-                                <StackPane prefWidth="30" prefHeight="30"
-                                           style="-fx-background-color: #B5D4F4; -fx-background-radius: 15;">
-                                    <Label text="JO" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                </StackPane>
-                                <VBox spacing="1" HBox.hgrow="ALWAYS">
-                                    <Label text="James Osei" style="-fx-font-size: 13; -fx-font-weight: bold;"/>
-                                    <Label text="Emergency · Referral" style="-fx-font-size: 11; -fx-text-fill: #888;"/>
-                                </VBox>
-                                <VBox alignment="CENTER_RIGHT" spacing="3">
-                                    <Label text="10:00" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #185FA5;"/>
-                                    <Label text="Urgent"
-                                           style="-fx-background-color: #fcebeb; -fx-text-fill: #a32d2d; -fx-font-size: 11; -fx-padding: 2 8 2 8; -fx-background-radius: 10;"/>
-                                </VBox>
-                            </HBox>
-
-                            <HBox spacing="10" alignment="CENTER_LEFT"
-                                  style="-fx-padding: 8 0 8 0; -fx-border-color: #f0f4fa; -fx-border-width: 0 0 1 0;">
-                                <StackPane prefWidth="30" prefHeight="30"
-                                           style="-fx-background-color: #B5D4F4; -fx-background-radius: 15;">
-                                    <Label text="EA" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                </StackPane>
-                                <VBox spacing="1" HBox.hgrow="ALWAYS">
-                                    <Label text="Efua Agyemang" style="-fx-font-size: 13; -fx-font-weight: bold;"/>
-                                    <Label text="Oncology · Consultation" style="-fx-font-size: 11; -fx-text-fill: #888;"/>
-                                </VBox>
-                                <VBox alignment="CENTER_RIGHT" spacing="3">
-                                    <Label text="11:30" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #185FA5;"/>
-                                    <Label text="Pending"
-                                           style="-fx-background-color: #E6F1FB; -fx-text-fill: #0C447C; -fx-font-size: 11; -fx-padding: 2 8 2 8; -fx-background-radius: 10;"/>
-                                </VBox>
-                            </HBox>
-
-                            <HBox spacing="10" alignment="CENTER_LEFT"
-                                  style="-fx-padding: 8 0 0 0;">
-                                <StackPane prefWidth="30" prefHeight="30"
-                                           style="-fx-background-color: #B5D4F4; -fx-background-radius: 15;">
-                                    <Label text="BK" style="-fx-font-size: 11; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                </StackPane>
-                                <VBox spacing="1" HBox.hgrow="ALWAYS">
-                                    <Label text="Bright Kwame" style="-fx-font-size: 13; -fx-font-weight: bold;"/>
-                                    <Label text="Orthopedics · X-ray" style="-fx-font-size: 11; -fx-text-fill: #888;"/>
-                                </VBox>
-                                <VBox alignment="CENTER_RIGHT" spacing="3">
-                                    <Label text="14:00" style="-fx-font-size: 12; -fx-font-weight: bold; -fx-text-fill: #185FA5;"/>
-                                    <Label text="Confirmed"
-                                           style="-fx-background-color: #eaf3de; -fx-text-fill: #3b6d11; -fx-font-size: 11; -fx-padding: 2 8 2 8; -fx-background-radius: 10;"/>
-                                </VBox>
-                            </HBox>
-                        </VBox>
+                        <VBox fx:id="activityList" style="-fx-padding: 0 16 14 16;" spacing="0"/>
                     </VBox>
 
                     <VBox HBox.hgrow="ALWAYS" spacing="16">
-
                         <VBox spacing="0"
                               style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #e0e8f0; -fx-border-width: 1; -fx-border-radius: 12;">
                             <HBox alignment="CENTER_LEFT" style="-fx-padding: 14 16 10 16;">
-                                <Label text="Department Occupancy"
+                                <Label text="Ward Occupancy"
                                        style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
-                                <Region HBox.hgrow="ALWAYS"/>
-                                <Label text="Details →"
-                                       style="-fx-font-size: 12; -fx-text-fill: #378ADD; -fx-cursor: hand;"/>
                             </HBox>
-                            <VBox style="-fx-padding: 0 16 14 16;" spacing="10">
-
-                                <VBox spacing="4">
-                                    <HBox>
-                                        <Label text="Emergency" style="-fx-font-size: 13;"/>
-                                        <Region HBox.hgrow="ALWAYS"/>
-                                        <Label text="34 / 40" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
-                                    </HBox>
-                                    <ProgressBar progress="0.85" prefWidth="10000" prefHeight="6"
-                                                 style="-fx-accent: #e24b4a; -fx-background-color: #E6F1FB; -fx-background-radius: 3; -fx-border-radius: 3;"/>
-                                </VBox>
-
-                                <VBox spacing="4">
-                                    <HBox>
-                                        <Label text="General Ward" style="-fx-font-size: 13;"/>
-                                        <Region HBox.hgrow="ALWAYS"/>
-                                        <Label text="56 / 80" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
-                                    </HBox>
-                                    <ProgressBar progress="0.70" prefWidth="10000" prefHeight="6"
-                                                 style="-fx-accent: #185FA5; -fx-background-color: #E6F1FB; -fx-background-radius: 3; -fx-border-radius: 3;"/>
-                                </VBox>
-
-                                <VBox spacing="4">
-                                    <HBox>
-                                        <Label text="Pediatrics" style="-fx-font-size: 13;"/>
-                                        <Region HBox.hgrow="ALWAYS"/>
-                                        <Label text="22 / 40" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
-                                    </HBox>
-                                    <ProgressBar progress="0.55" prefWidth="10000" prefHeight="6"
-                                                 style="-fx-accent: #378ADD; -fx-background-color: #E6F1FB; -fx-background-radius: 3; -fx-border-radius: 3;"/>
-                                </VBox>
-
-                                <VBox spacing="4">
-                                    <HBox>
-                                        <Label text="Maternity" style="-fx-font-size: 13;"/>
-                                        <Region HBox.hgrow="ALWAYS"/>
-                                        <Label text="14 / 30" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
-                                    </HBox>
-                                    <ProgressBar progress="0.47" prefWidth="10000" prefHeight="6"
-                                                 style="-fx-accent: #85B7EB; -fx-background-color: #E6F1FB; -fx-background-radius: 3; -fx-border-radius: 3;"/>
-                                </VBox>
-
-                                <VBox spacing="4">
-                                    <HBox>
-                                        <Label text="ICU" style="-fx-font-size: 13;"/>
-                                        <Region HBox.hgrow="ALWAYS"/>
-                                        <Label text="10 / 16" style="-fx-font-size: 12; -fx-text-fill: #888;"/>
-                                    </HBox>
-                                    <ProgressBar progress="0.63" prefWidth="10000" prefHeight="6"
-                                                 style="-fx-accent: #e24b4a; -fx-background-color: #E6F1FB; -fx-background-radius: 3; -fx-border-radius: 3;"/>
-                                </VBox>
-                            </VBox>
+                            <VBox fx:id="wardOccupancyList" style="-fx-padding: 0 16 14 16;" spacing="10"/>
                         </VBox>
 
                         <VBox spacing="0"
@@ -529,35 +204,30 @@
                                 <Label text="Quick Stats"
                                        style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #042C53;"/>
                             </HBox>
-                            <GridPane hgap="10" vgap="10"
-                                      style="-fx-padding: 0 16 16 16;">
+                            <GridPane hgap="10" vgap="10" style="-fx-padding: 0 16 16 16;">
                                 <columnConstraints>
                                     <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
                                     <ColumnConstraints hgrow="ALWAYS" percentWidth="50"/>
                                 </columnConstraints>
-
                                 <VBox spacing="2" style="-fx-background-color: #E6F1FB; -fx-background-radius: 8; -fx-padding: 12;"
                                       GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                    <Label fx:id="doctorsOnDutyValue" text="0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                    <Label text="Doctors on duty" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
+                                    <Label fx:id="stat1Value" text="0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
+                                    <Label fx:id="stat1Title" text="Patients" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
                                 </VBox>
-
                                 <VBox spacing="2" style="-fx-background-color: #E6F1FB; -fx-background-radius: 8; -fx-padding: 12;"
                                       GridPane.columnIndex="1" GridPane.rowIndex="0">
-                                    <Label fx:id="nursesOnShiftValue" text="0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                    <Label text="Nurses on shift" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
+                                    <Label fx:id="stat2Value" text="0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
+                                    <Label fx:id="stat2Title" text="Pending prescriptions" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
                                 </VBox>
-
                                 <VBox spacing="2" style="-fx-background-color: #E6F1FB; -fx-background-radius: 8; -fx-padding: 12;"
                                       GridPane.columnIndex="0" GridPane.rowIndex="1">
-                                    <Label text="19" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                    <Label text="Surgeries this week" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
+                                    <Label fx:id="stat3Value" text="0" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
+                                    <Label fx:id="stat3Title" text="Pending lab orders" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
                                 </VBox>
-
                                 <VBox spacing="2" style="-fx-background-color: #E6F1FB; -fx-background-radius: 8; -fx-padding: 12;"
                                       GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                    <Label text="96%" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
-                                    <Label text="Lab test completion" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
+                                    <Label fx:id="stat4Value" text="0%" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #0C447C;"/>
+                                    <Label fx:id="stat4Title" text="Lab completion rate" style="-fx-font-size: 11; -fx-text-fill: #185FA5;"/>
                                 </VBox>
                             </GridPane>
                         </VBox>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.AppointmentFormController"
+      spacing="12" prefWidth="420" styleClass="form-root">
+
+    <Label fx:id="formTitleLabel" text="Schedule Appointment" styleClass="form-title"/>
+    <ComboBox fx:id="patientCombo" promptText="Select patient" maxWidth="Infinity"/>
+    <ComboBox fx:id="doctorCombo" promptText="Select doctor" maxWidth="Infinity"/>
+    <DatePicker fx:id="datePicker" promptText="Date" maxWidth="Infinity"/>
+    <TextField fx:id="timeField" promptText="Time (HH:MM)"/>
+    <ComboBox fx:id="statusCombo" promptText="Status" maxWidth="Infinity"/>
+    <TextField fx:id="reasonField" promptText="Reason for visit"/>
+    <TextArea fx:id="notesArea" promptText="Notes" prefRowCount="2"/>
+    <Label fx:id="formErrorLabel" styleClass="form-error" visible="false" managed="false" wrapText="true"/>
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-secondary"/>
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary"/>
+    </HBox>
+</VBox>

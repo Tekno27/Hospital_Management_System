@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.LabOrderFormController"
+      spacing="12" prefWidth="420"
+      styleClass="form-root">
+
+    <Label fx:id="formTitleLabel" text="New Lab Order" styleClass="form-title" />
+    <ComboBox fx:id="patientCombo" promptText="Select patient" maxWidth="Infinity" />
+    <ComboBox fx:id="testCombo" promptText="Select test" maxWidth="Infinity" />
+    <ComboBox fx:id="statusCombo" promptText="Status" maxWidth="Infinity" visible="false" managed="false" />
+    <TextField fx:id="resultValueField" promptText="Result value" visible="false" managed="false" />
+    <TextArea fx:id="notesArea" promptText="Notes" prefRowCount="3" />
+    <Label fx:id="formErrorLabel" styleClass="form-error" visible="false" wrapText="true" />
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Button text="Cancel" onAction="#handleCancel" styleClass="btn-secondary" />
+        <Button text="Save" onAction="#handleSave" styleClass="btn-primary" />
+    </HBox>
+</VBox>

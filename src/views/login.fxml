@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           fx:controller="controllers.LoginController"
+           prefWidth="800" prefHeight="500"
+           styleClass="auth-bg">
+
+    <VBox alignment="CENTER" spacing="14" maxWidth="380" styleClass="login-card">
+
+        <Label text="MedCore HMS" styleClass="login-title" />
+        <Label text="Sign in to continue" styleClass="login-subtitle" />
+
+        <TextField fx:id="usernameField" promptText="Username" />
+
+        <HBox alignment="CENTER_LEFT" spacing="0" styleClass="input-group">
+            <StackPane HBox.hgrow="ALWAYS">
+                <PasswordField fx:id="passwordField" promptText="Password" styleClass="search-field"/>
+                <TextField fx:id="visiblePasswordField" promptText="Password" visible="false" managed="false"
+                           styleClass="search-field"/>
+            </StackPane>
+            <Button fx:id="togglePasswordButton" text="👁" onAction="#handleTogglePassword" styleClass="btn-icon"/>
+        </HBox>
+
+        <Label fx:id="errorLabel" text="" styleClass="error-label" visible="false" managed="false" wrapText="true" maxWidth="320" />
+
+        <Button fx:id="loginButton" text="Log In" onAction="#handleLogin" defaultButton="true"
+                maxWidth="Infinity" styleClass="btn-primary" />
+
+        <VBox spacing="3" alignment="CENTER_LEFT" styleClass="login-demo-box">
+            <Label text="Demo accounts" styleClass="filter-label"/>
+            <Label text="Admin — admin / admin123" styleClass="login-hint"/>
+            <Label text="Doctor — kmensah / password" styleClass="login-hint"/>
+            <Label text="Nurse — aboateng / password" styleClass="login-hint"/>
+        </VBox>
+    </VBox>
+</StackPane>

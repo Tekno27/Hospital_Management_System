@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.ComingSoonController"
+      alignment="CENTER" spacing="14"
+      styleClass="app-bg">
+
+    <Label text="🚧" styleClass="coming-soon-icon" />
+    <Label text="This module is coming soon" styleClass="coming-soon-title" />
+    <Label text="We're still building this part of MedCore HMS." styleClass="coming-soon-body" />
+    <Label text="Use the sidebar to navigate to other sections." styleClass="coming-soon-hint" />
+</VBox>

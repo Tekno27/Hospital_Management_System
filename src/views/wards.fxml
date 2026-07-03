@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.WardController"
+      spacing="0" styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" styleClass="content-header">
+        <VBox spacing="2">
+            <Label text="Ward Management" styleClass="page-title"/>
+            <Label fx:id="recordCountLabel" text="0 wards" styleClass="record-count"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Label fx:id="summaryLabel" text="" styleClass="header-stat-value"/>
+    </HBox>
+
+    <HBox spacing="0" VBox.vgrow="ALWAYS">
+        <VBox prefWidth="250" minWidth="250" spacing="16" styleClass="filter-panel">
+            <Label text="Filters" styleClass="filter-section-title"/>
+            <VBox spacing="8">
+                <Label text="Search" styleClass="filter-label"/>
+                <TextField fx:id="searchField" promptText="Ward or department..."/>
+            </VBox>
+            <VBox spacing="8">
+                <Label text="Department" styleClass="filter-label"/>
+                <ComboBox fx:id="departmentFilter" maxWidth="Infinity"/>
+            </VBox>
+            <HBox spacing="8">
+                <Button text="Apply" onAction="#handleSearch" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-primary"/>
+                <Button text="Clear" onAction="#handleClearFilters" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="btn-secondary"/>
+            </HBox>
+        </VBox>
+
+        <VBox VBox.vgrow="ALWAYS" styleClass="table-area">
+            <TableView fx:id="wardTable" VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colName" text="Ward" prefWidth="100"/>
+                    <TableColumn fx:id="colDepartment" text="Department" prefWidth="120"/>
+                    <TableColumn fx:id="colFloor" text="Floor" prefWidth="80"/>
+                    <TableColumn fx:id="colCapacity" text="Capacity" prefWidth="75"/>
+                    <TableColumn fx:id="colOccupied" text="Occupied" prefWidth="75"/>
+                    <TableColumn fx:id="colAvailable" text="Available" prefWidth="75"/>
+                    <TableColumn fx:id="colNurses" text="Nurses" prefWidth="65"/>
+                    <TableColumn fx:id="colOccupancy" text="Occupancy" prefWidth="140"/>
+                    <TableColumn fx:id="colActions" text="Actions" prefWidth="120"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

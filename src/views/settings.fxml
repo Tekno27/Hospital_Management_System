@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.SettingsController"
+      spacing="0" styleClass="app-bg">
+
+    <HBox alignment="CENTER_LEFT" prefHeight="64" styleClass="content-header">
+        <Label text="Settings" styleClass="page-title"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="dashboard-scroll">
+        <VBox spacing="20" styleClass="dashboard-body" maxWidth="640">
+            <VBox spacing="12" styleClass="profile-card">
+                <Label text="General" styleClass="filter-section-title"/>
+                <VBox spacing="6">
+                    <Label text="Hospital display name" styleClass="filter-label"/>
+                    <TextField fx:id="hospitalNameField" promptText="MedCore HMS"/>
+                </VBox>
+            </VBox>
+
+            <VBox spacing="12" styleClass="profile-card">
+                <Label text="Notifications" styleClass="filter-section-title"/>
+                <CheckBox fx:id="emailNotificationsCheck" text="Enable email notifications for critical alerts"/>
+            </VBox>
+
+            <VBox spacing="12" styleClass="profile-card">
+                <Label text="Display" styleClass="filter-section-title"/>
+                <CheckBox fx:id="compactTablesCheck" text="Use compact table rows"/>
+                <CheckBox fx:id="showChartsCheck" text="Show charts on dashboard"/>
+                <CheckBox fx:id="autoRefreshCheck" text="Auto-refresh dashboard data on open"/>
+            </VBox>
+
+            <HBox spacing="12">
+                <Button text="Save Settings" onAction="#handleSave" styleClass="btn-primary"/>
+                <Button text="Reset to Defaults" onAction="#handleReset" styleClass="btn-secondary"/>
+            </HBox>
+            <Label fx:id="saveStatusLabel" styleClass="muted-text" visible="false" managed="false"/>
+        </VBox>
+    </ScrollPane>
+</VBox>
